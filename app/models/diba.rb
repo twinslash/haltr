@@ -1,6 +1,9 @@
 # Ajuda per passar de csv a ruby amb el vim
 #
-# :% s/\",\"\(\S\+\)\"/ (\1)\",\"\1\"/
+#  -  Cercar i substituir ^" per "] i "$ per "[ 
+#  -  Afegir el codi entre paréntesis:
+#     :% s/\",\"\(\S\+\)\"/ (\1)\",\"\1\"/
+
 class Diba
 
   CODIS_CENTRE_GESTORS = {
