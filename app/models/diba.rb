@@ -1,13 +1,13 @@
 # Ajuda per passar de csv a ruby amb el vim
 #
-#  -  Cercar i substituir ^" per "] i "$ per "[ 
-#  -  Afegir el codi entre paréntesis:
+#   Cercar i substituir ^" per "] i "$ per "[ 
+#   Afegir el codi entre paréntesis:
 #     :% s/\",\"\(\S\+\)\"/ (\1)\",\"\1\"/
 
 class Diba
 
   CODIS_CENTRE_GESTORS = {
-    "Àrea de Presidència" => [
+    "1 Àrea de Presidència" => [
       ["Secretaria General (1A000)","1A000"],
       ["Direcció de Relacions Internacionals (10400)","10400"],
       ["Direcció de Comunicació (10600)","10600"],
@@ -16,7 +16,9 @@ class Diba
       ["Direcció de Serveis de Formació (11100)","11100"],
       ["Coordinació de Concertació i Assistència Local (12000)","12000"],
       ["Servei de Govern Local (12001)","12001"],
-      ["Gerència de Serveis d'Assistència. Govern Local (12100)","12100"],
+      ["Gerència de Serveis d'Assistència. Govern Local (12100)","12100"]
+  ],
+    "2 Àrea d'Hisenda i Recursos Interns" => [
       ["Àrea d'Hisenda i Recursos Interns (20000)","20000"],
       ["Servei de Contractació (20001)","20001"],
       ["Direcció dels Serveis de Recursos Humans (20100)","20100"],
@@ -29,7 +31,8 @@ class Diba
       ["Intervenció General (2B000)","2B000"],
       ["Tresoreria (2C000)","2C000"]
   ],
-    "Àrea de Desenvolupament Econòmic i Ocupació" => [
+    "3 Àrea de Desenvolupament Econòmic i Ocupació" => [
+      ["Àrea de Desenvolupament Econòmic i Ocupació (30000)","30000"], 
       ["Gerència de Serveis de Desenvolupament Econòmic (30100)","30100"],
       ["Servei de Mercat de Treball (30101)","30101"],
       ["Oficina Tècnica d'Estratègies Desenvolupament Econòmic (30102)","30102"],
@@ -42,7 +45,8 @@ class Diba
       ["Oficina de Mercats i Fires Locals (30302)","30302"],
       ["Gerència de Serveis d'Esports (30400)","30400"]
   ],
-    "Àrea de Coneixement i Noves Tecnologies" => [
+    "4 Àrea de Coneixement i Noves Tecnologies" => [
+      ["Àrea de Coneixement i Noves Tecnologies (40000)", "40000"],
       ["Gerència de Serveis de Cultura (40100)","40100"],
       ["Oficina d'Estudis i Recursos Culturals (40101)","40101"],
       ["Oficina de Patrimoni Cultural (40102)","40102"],
@@ -50,7 +54,8 @@ class Diba
       ["Gerència de Serveis de Biblioteques (40200)","40200"],
       ["Gerència de Serveis d'Educació (40300)","40300"]
   ],
-    "Àrea de Territori i Sostenibilitat" => [
+    "5 Àrea de Territori i Sostenibilitat" => [
+      ["Àrea de Territori i Sostenibilitat (50000)","50000"],
       ["Oficina Tècnica de Cartografia i SIG Local (50001)","50001"],
       ["Oficina Tècnica de Prevenció Municipal d'Incendis Forestals (50002)","50002"],
       ["Gerència de Serveis d'Infraestructures Viàries i Mobilitat (50100)","50100"],
@@ -64,7 +69,8 @@ class Diba
       ["Oficina Tècnica d'Acció Territorial (50403)","50403"],
       ["Gerència de Serveis de Medi Ambient (50500)","50500"]
   ],
-    "Àrea d'Atenció a les Persones" => [
+    "6 Àrea d'Atenció a les Persones" => [
+      ["Àrea d'Atenció a les Persones (60000)","60000"],
       ["Gerència de Serveis de Benestar Social (60100)","60100"],
       ["Servei d'Acció Social (60101)","60101"],
       ["Oficina de Suport Tècnic als Serveis Socials (60103)","60103"],
