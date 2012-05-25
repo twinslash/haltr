@@ -199,6 +199,7 @@ class IssuedInvoice < InvoiceDocument
     ""
   end
 
+  protected
 
   def create_event
     Event.create(:name=>'new',:invoice=>self,:user=>User.current)
@@ -243,7 +244,6 @@ class IssuedInvoice < InvoiceDocument
       true
     end
   end
-  protected
 
   def release_amended
     if self.amend_of
