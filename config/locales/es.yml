@@ -373,3 +373,5 @@ es:
   peppol: "Factura UBL 2.0 via Peppol"
   field_endpointid: "Peppol Endpoint ID"
   field_schemeid: "Peppol Scheme ID"
+  missing_company_peppol_fields: "Faltan campos de Peppol de tu empresa"
+  missing_client_peppol_fields: "Faltan campos de Peppol del cliente"

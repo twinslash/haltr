@@ -6,15 +6,15 @@ class ExportChannels
   def self.available
     {
       'paper'         => { :format=>nil,          :channel=>nil} ,
-      'ublinvoice_20' => { :format=>'ubl21',      :channel=>'free_ubl', :validate => [:client_has_email, :ubl_invoice_has_no_taxes_withheld] },
-      'facturae_30'   => { :format=>'facturae30', :channel=>'free_xml', :validate => [:client_has_email, :invoice_has_taxes] },
-      'facturae_31'   => { :format=>'facturae31', :channel=>'free_xml', :validate => [:client_has_email, :invoice_has_taxes] },
-      'facturae_32'   => { :format=>'facturae32', :channel=>'free_xml', :validate => [:client_has_email, :invoice_has_taxes] },
-      'signed_pdf'    => { :format=>'pdf',        :channel=>'free_pdf', :validate => :client_has_email },
-      'aoc'           => { :format=>'facturae30', :channel=>'free_aoc', :private=>true, :validate => :invoice_has_taxes },
-      'aoc31'         => { :format=>'facturae31', :channel=>'free_aoc', :private=>true, :validate => :invoice_has_taxes },
-      'aoc32'         => { :format=>'facturae32', :channel=>'free_aoc', :private=>true, :validate => :invoice_has_taxes },
-      'peppol'        => { :format=>'ubl21',      :channel=>'peppol',   :private=>true, :validate => :ubl_invoice_has_no_taxes_withheld }
+      'ublinvoice_20' => { :format=>'ubl21',      :channel=>'free_ubl',    :validate=>[:client_has_email, :ubl_invoice_has_no_taxes_withheld] },
+      'facturae_30'   => { :format=>'facturae30', :channel=>'free_xml',    :validate=>[:client_has_email, :invoice_has_taxes] },
+      'facturae_31'   => { :format=>'facturae31', :channel=>'free_xml',    :validate=>[:client_has_email, :invoice_has_taxes] },
+      'facturae_32'   => { :format=>'facturae32', :channel=>'free_xml',    :validate=>[:client_has_email, :invoice_has_taxes] },
+      'signed_pdf'    => { :format=>'pdf',        :channel=>'free_pdf',    :validate=>:client_has_email },
+      'aoc'           => { :format=>'facturae30', :channel=>'free_aoc',    :private=>true, :validate=>:invoice_has_taxes },
+      'aoc31'         => { :format=>'facturae31', :channel=>'free_aoc',    :private=>true, :validate=>:invoice_has_taxes },
+      'aoc32'         => { :format=>'facturae32', :channel=>'free_aoc',    :private=>true, :validate=>:invoice_has_taxes },
+      'peppol'        => { :format=>'ubl21',      :channel=>'send_peppol', :private=>true, :validate=>[:ubl_invoice_has_no_taxes_withheld, :peppol_fields] }
     }
   end
 

@@ -361,3 +361,5 @@ en:
   peppol: "Peppol UBL 2.0 Invoice"
   field_endpointid: "Peppol Endpoint ID"
   field_schemeid: "Peppol Scheme ID"
+  missing_company_peppol_fields: "Missing Peppol fields on your company"
+  missing_client_peppol_fields: "Missing Peppol fields on client"

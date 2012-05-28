@@ -46,8 +46,8 @@
     <p><%= f.text_field :bic, :size => 30 %></p>
 <% if User.current.admin? or User.current.allowed_to?(:use_restricted_channels, @project) -%>
     <br />
+    <p><%= f.select :schemeid, Peppol::SCHEMEIDS %></p>
     <p><%= f.text_field :endpointid %></p>
-    <p><%= f.text_field :schemeid %></p>
 <% end -%>
 
     <% if @client.linked? -%>

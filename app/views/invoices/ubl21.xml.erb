@@ -36,6 +36,9 @@
 <% end -%>
     <cac:AccountingSupplierParty>
       <cac:Party>
+<% unless @company.endpointid.blank? -%>
+        <cbc:EndpointID schemeID="<%= @company.schemeid %>"><%= @company.endpointid %></cbc:EndpointID>
+<% end -%>
         <cac:PartyName>
           <cbc:Name><%=h @company.name%></cbc:Name>
         </cac:PartyName>
@@ -57,6 +60,9 @@
     </cac:AccountingSupplierParty>
     <cac:AccountingCustomerParty>
       <cac:Party>
+<% unless @client.endpointid.blank? -%>
+        <cbc:EndpointID schemeID="<%= @client.schemeid %>"><%= @client.endpointid %></cbc:EndpointID>
+<% end -%>
         <cac:PartyName>
           <cbc:Name><%=h @client.name%></cbc:Name>
         </cac:PartyName>

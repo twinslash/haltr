@@ -245,6 +245,17 @@ class IssuedInvoice < InvoiceDocument
     end
   end
 
+  def peppol_fields
+    if self.client.schemeid.blank? or self.client.endpointid.blank?
+      add_export_error(:missing_client_peppol_fields)
+      return false
+    elsif self.company.schemeid.blank? or self.company.endpointid.blank?
+      add_export_error(:missing_company_peppol_fields)
+      return false
+    end
+    true
+  end
+
   def release_amended
     if self.amend_of
       self.amend_of.amend_id = nil
