@@ -44,6 +44,12 @@
     <p><%= f.text_field :bank_account, :size => 30 %></p>
     <p><%= f.text_field :iban, :size => 30 %></p>
     <p><%= f.text_field :bic, :size => 30 %></p>
+<% if User.current.admin? or User.current.allowed_to?(:use_restricted_channels, @project) -%>
+    <br />
+    <p><%= f.text_field :endpointid %></p>
+    <p><%= f.text_field :schemeid %></p>
+<% end -%>
+
     <% if @client.linked? -%>
       <p><%= label_tag I18n.t :field_currency %>
       <%= text_field_tag :currency, "#{@client.currency} - #{Money.new(0,@client.currency).currency.name}", :readonly => true %></p>

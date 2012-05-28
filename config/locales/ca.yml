@@ -369,3 +369,6 @@ ca:
   field_send_invoices_by_mail: "Enviar factures a aquest email"
   state_allegedly_paid: "Informada com a pagada"
   ubl_invoice_has_taxes_withheld: "No es pot generar una factura UBL amb impostos retinguts"
+  peppol: "Factura UBL 2.0 via Peppol"
+  field_endpointid: "Peppol Endpoint ID"
+  field_schemeid: "Peppol Scheme ID"
