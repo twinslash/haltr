@@ -374,3 +374,4 @@ ca:
   field_schemeid: "Peppol Scheme ID"
   missing_company_peppol_fields: "Falten camps de Peppol de la teva empresa"
   missing_client_peppol_fields: "Falten camps de Peppol del client"
+  field_accounting_cost: "Centre de cost"

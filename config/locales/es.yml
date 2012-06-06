@@ -375,3 +375,4 @@ es:
   field_schemeid: "Peppol Scheme ID"
   missing_company_peppol_fields: "Faltan campos de Peppol de tu empresa"
   missing_client_peppol_fields: "Faltan campos de Peppol del cliente"
+  field_accounting_cost: "Centro de coste"

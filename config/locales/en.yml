@@ -363,3 +363,4 @@ en:
   field_schemeid: "Peppol Scheme ID"
   missing_company_peppol_fields: "Missing Peppol fields on your company"
   missing_client_peppol_fields: "Missing Peppol fields on client"
+  field_accounting_cost: "Accounting cost"

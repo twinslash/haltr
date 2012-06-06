@@ -16,6 +16,7 @@
         <cbc:Note><%=h @invoice.extra_info%></cbc:Note>
 <% end -%>
     <cbc:DocumentCurrencyCode listID="ISO 4217 Alpha" listAgencyID="6"><%=h @client.currency%></cbc:DocumentCurrencyCode>
+    <cbc:AccountingCost><%=@invoice.accounting_cost%></cbc:AccountingCost>
 <% if @invoice.amend_of -%>
       <cac:DiscrepancyResponse>
         <cbc:ReferenceID>1</cbc:ReferenceID>
