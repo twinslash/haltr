@@ -24,6 +24,8 @@ class InvoicesController < ApplicationController
     before_filter :check_remote_ip, :only => [:by_taxcode_and_num,:mail]
   end
 
+  verify :method => :post, :only => [:create,:update], :redirect_to => :root_path
+
   include CompanyFilter
   before_filter :check_for_company, :except => [:by_taxcode_and_num,:view,:download,:mail]
 
@@ -205,6 +207,21 @@ class InvoicesController < ApplicationController
     end
 
     render :text => "Template created"
+  end
+
+  def duplicate_invoice
+    orig = InvoiceDocument.find(params[:id])
+    @invoice = IssuedInvoice.new orig.attributes
+    @invoice.number += "-dup"
+    orig.invoice_lines.each do |il|
+      l = InvoiceLine.new il.attributes
+      il.taxes.each do |tax|
+        l.taxes << Tax.new(:name=>tax.name,:percent=>tax.percent)
+      end
+      @invoice.invoice_lines << l
+    end
+    @client = @invoice.client
+    render :action => "new"
   end
 
   def pdf
