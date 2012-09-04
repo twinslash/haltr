@@ -9,8 +9,8 @@ class InvoiceTemplatesController < ApplicationController
   helper :sort
   include SortHelper
 
-  before_filter :find_invoice_template, :except => [:index,:new,:create,:new_from_invoice,:invoices,:create_invoices]
-  before_filter :find_project, :only => [:index,:new,:create,:invoices,:create_invoices]
+  before_filter :find_invoice_template, :except => [:index,:new,:create,:new_from_invoice,:invoices,:create_invoices,:update_taxes]
+  before_filter :find_project, :only => [:index,:new,:create,:invoices,:create_invoices,:update_taxes]
   before_filter :find_invoice, :only => [:new_from_invoice]
   before_filter :authorize
 
@@ -148,6 +148,31 @@ class InvoiceTemplatesController < ApplicationController
     end
     @drafts = DraftInvoice.find :all, :include => [:client], :conditions => ["clients.project_id = ?", @project.id], :order => "date ASC"
     render :action => 'invoices'
+  end
+
+  def update_taxes
+    num_changed = 0
+    from_name = params[:from_name]
+    from_percent = params[:from_percent].to_i
+    @used_taxes = []
+    @project.invoice_templates.each do |template|
+      template_changed = false
+      template.invoice_lines.each do |line|
+        line.taxes.each do |tax|
+          if tax.name == from_name and tax.percent == from_percent
+            tax.name = params[:to_name]
+            tax.percent = params[:to_percent].to_i
+            if tax.save
+              num_changed = num_changed + 1
+              template_changed = true
+            end
+          end
+          @used_taxes << tax unless @used_taxes.include? tax
+        end
+      end
+      template.save if template_changed
+    end
+    flash.now[:notice] = "Updated #{num_changed} template lines" if from_name and from_percent
   end
 
   private

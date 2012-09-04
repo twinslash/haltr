@@ -365,3 +365,6 @@ en:
   missing_company_peppol_fields: "Missing Peppol fields on your company"
   missing_client_peppol_fields: "Missing Peppol fields on client"
   field_accounting_cost: "Accounting cost"
+
+  label_update_taxes: "Update the taxes of templates"
+
