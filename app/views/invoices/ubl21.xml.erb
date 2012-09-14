@@ -57,6 +57,9 @@
             <cbc:ElectronicMail><%=h @company.email%></cbc:ElectronicMail>
           </cac:Contact>
         <% end -%>
+        <cac:PartyLegalEntity>
+          <cbc:CompanyID><%=h @company.company_identifier%></cbc:CompanyID>
+        </cac:PartyLegalEntity>
       </cac:Party>
     </cac:AccountingSupplierParty>
     <cac:AccountingCustomerParty>
@@ -81,6 +84,9 @@
             <cbc:ElectronicMail><%=h @client.email%></cbc:ElectronicMail>
           </cac:Contact>
         <% end -%>
+        <cac:PartyLegalEntity>
+          <cbc:CompanyID><%=h @client.company_identifier%></cbc:CompanyID>
+        </cac:PartyLegalEntity>
       </cac:Party>
     </cac:AccountingCustomerParty>
 <% unless @invoice.amend_of -%>

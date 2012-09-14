@@ -378,3 +378,4 @@ ca:
   field_accounting_cost: "Centre de cost"
 
   label_update_taxes: "Actualitzar els impostos de les plantilles"
+  field_company_identifier: "ID d'empresa"

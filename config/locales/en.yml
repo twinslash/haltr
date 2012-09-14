@@ -367,4 +367,4 @@ en:
   field_accounting_cost: "Accounting cost"
 
   label_update_taxes: "Update the taxes of templates"
-
+  field_company_identifier: "Organization ID"

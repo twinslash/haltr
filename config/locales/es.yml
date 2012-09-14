@@ -379,3 +379,4 @@ es:
   field_accounting_cost: "Centro de coste"
 
   label_update_taxes: "Actualiza los impuestos de las plantillas"
+  field_company_identifier: "ID de empresa"

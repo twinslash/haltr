@@ -362,3 +362,6 @@ fr:
   missing_company_peppol_fields: "champs manquants Peppol votre entreprise"
   missing_client_peppol_fields: "champs manquants Peppol client"
   field_accounting_cost: "comptabilisation des coûts"
+
+  label_update_taxes: "Update the taxes of templates"
+  field_company_identifier: "Organization ID"
