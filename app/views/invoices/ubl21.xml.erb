@@ -16,7 +16,9 @@
         <cbc:Note><%=h @invoice.extra_info%></cbc:Note>
 <% end -%>
     <cbc:DocumentCurrencyCode listID="ISO 4217 Alpha" listAgencyID="6"><%=h @client.currency%></cbc:DocumentCurrencyCode>
-    <cbc:AccountingCost><%=@invoice.accounting_cost%></cbc:AccountingCost>
+    <% if @invoice.respond_to?(:accounting_cost) and @invoice.accounting_cost %>
+      <cbc:AccountingCost><%=@invoice.accounting_cost%></cbc:AccountingCost>
+    <% end %>
 <% if @invoice.amend_of -%>
       <cac:DiscrepancyResponse>
         <cbc:ReferenceID>1</cbc:ReferenceID>
@@ -37,7 +39,7 @@
 <% end -%>
     <cac:AccountingSupplierParty>
       <cac:Party>
-<% unless @company.endpointid.blank? -%>
+<% unless !@company.respond_to?(:endpointid) or @company.endpointid.blank? -%>
         <cbc:EndpointID schemeID="<%= @company.schemeid %>"><%= @company.endpointid %></cbc:EndpointID>
 <% end -%>
         <cac:PartyName>
@@ -89,7 +91,7 @@
       <cac:PaymentMeans>
         <cbc:PaymentMeansCode><%=h @invoice.payment_method_code(:ubl) %></cbc:PaymentMeansCode>
         <cbc:PaymentDueDate><%=h @invoice.due_date%></cbc:PaymentDueDate>
-<% if @invoice.debit? and @invoice.international? -%>
+<% if @invoice.debit? and @client.iban and @client.bic -%>
             <cbc:PaymentChannelCode>IBAN</cbc:PaymentChannelCode>
             <cac:PayerFinancialAccount>
               <cbc:ID schemeID="IBAN"><%=h @client.iban%></cbc:ID>
@@ -99,11 +101,11 @@
                 </cac:FinancialInstitution>
               </cac:FinancialInstitutionBranch>
             </cac:PayerFinancialAccount>
-<% elsif @invoice.debit? -%>
+<% elsif @invoice.debit? and @client.bank_account -%>
             <cac:PayerFinancialAccount>
               <cbc:ID><%=h @client.bank_account%></cbc:ID>
             </cac:PayerFinancialAccount>
-<% elsif @invoice.transfer? and @invoice.international? -%>
+<% elsif @invoice.transfer? and @company.iban and @company.bic -%>
             <cbc:PaymentChannelCode>IBAN</cbc:PaymentChannelCode>
             <cac:PayeeFinancialAccount>
               <cbc:ID schemeID="IBAN"><%=h @company.iban%></cbc:ID>
@@ -113,7 +115,7 @@
                 </cac:FinancialInstitution>
               </cac:FinancialInstitutionBranch>
             </cac:PayeeFinancialAccount>
-<% elsif @invoice.transfer? -%>
+<% elsif @invoice.transfer? abd @company.bank_account -%>
             <cac:PayeeFinancialAccount>
               <cbc:ID><%=h @company.bank_account%></cbc:ID>
             </cac:PayeeFinancialAccount>
