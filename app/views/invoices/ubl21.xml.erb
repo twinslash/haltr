@@ -115,7 +115,7 @@
                 </cac:FinancialInstitution>
               </cac:FinancialInstitutionBranch>
             </cac:PayeeFinancialAccount>
-<% elsif @invoice.transfer? abd @company.bank_account -%>
+<% elsif @invoice.transfer? and @company.bank_account -%>
             <cac:PayeeFinancialAccount>
               <cbc:ID><%=h @company.bank_account%></cbc:ID>
             </cac:PayeeFinancialAccount>
