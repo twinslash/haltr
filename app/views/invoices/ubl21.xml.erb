@@ -64,7 +64,7 @@
     </cac:AccountingSupplierParty>
     <cac:AccountingCustomerParty>
       <cac:Party>
-<% unless @client.endpointid.blank? -%>
+<% unless !@company.respond_to?(:endpointid) or @company.endpointid.blank? -%>
         <cbc:EndpointID schemeID="<%= @client.schemeid %>"><%= @client.endpointid %></cbc:EndpointID>
 <% end -%>
         <cac:PartyName>
@@ -88,37 +88,37 @@
       </cac:Party>
     </cac:AccountingCustomerParty>
 <% unless @invoice.amend_of -%>
-      <cac:PaymentMeans>
-        <cbc:PaymentMeansCode><%=h @invoice.payment_method_code(:ubl) %></cbc:PaymentMeansCode>
-        <cbc:PaymentDueDate><%=h @invoice.due_date%></cbc:PaymentDueDate>
-<% if @invoice.debit? and @client.iban and @client.bic -%>
-            <cbc:PaymentChannelCode>IBAN</cbc:PaymentChannelCode>
-            <cac:PayerFinancialAccount>
-              <cbc:ID schemeID="IBAN"><%=h @client.iban%></cbc:ID>
-              <cac:FinancialInstitutionBranch>
-                <cac:FinancialInstitution>
-                  <cbc:ID schemeID="BIC"><%=h @client.bic%></cbc:ID>
-                </cac:FinancialInstitution>
-              </cac:FinancialInstitutionBranch>
-            </cac:PayerFinancialAccount>
-<% elsif @invoice.debit? and @client.bank_account -%>
-            <cac:PayerFinancialAccount>
-              <cbc:ID><%=h @client.bank_account%></cbc:ID>
-            </cac:PayerFinancialAccount>
-<% elsif @invoice.transfer? and @company.iban and @company.bic -%>
-            <cbc:PaymentChannelCode>IBAN</cbc:PaymentChannelCode>
-            <cac:PayeeFinancialAccount>
-              <cbc:ID schemeID="IBAN"><%=h @company.iban%></cbc:ID>
-              <cac:FinancialInstitutionBranch>
-                <cac:FinancialInstitution>
-                  <cbc:ID schemeID="BIC"><%=h @company.bic%></cbc:ID>
-                </cac:FinancialInstitution>
-              </cac:FinancialInstitutionBranch>
-            </cac:PayeeFinancialAccount>
-<% elsif @invoice.transfer? and @company.bank_account -%>
-            <cac:PayeeFinancialAccount>
-              <cbc:ID><%=h @company.bank_account%></cbc:ID>
-            </cac:PayeeFinancialAccount>
+    <cac:PaymentMeans>
+      <cbc:PaymentMeansCode><%=h @invoice.payment_method_code(:ubl) %></cbc:PaymentMeansCode>
+      <cbc:PaymentDueDate><%=h @invoice.due_date%></cbc:PaymentDueDate>
+<% if @invoice.debit? and @client.use_iban? -%>
+          <cbc:PaymentChannelCode>IBAN</cbc:PaymentChannelCode>
+          <cac:PayerFinancialAccount>
+            <cbc:ID><%=h @client.iban%></cbc:ID>
+            <cac:FinancialInstitutionBranch>
+              <cac:FinancialInstitution>
+                <cbc:ID><%=h @client.bic%></cbc:ID>
+              </cac:FinancialInstitution>
+            </cac:FinancialInstitutionBranch>
+          </cac:PayerFinancialAccount>
+<% elsif @invoice.debit? -%>
+          <cac:PayerFinancialAccount>
+            <cbc:ID><%=h @client.bank_account%></cbc:ID>
+          </cac:PayerFinancialAccount>
+<% elsif @invoice.transfer? and @company.use_iban? -%>
+          <cbc:PaymentChannelCode>IBAN</cbc:PaymentChannelCode>
+          <cac:PayeeFinancialAccount>
+            <cbc:ID><%=h @company.iban%></cbc:ID>
+            <cac:FinancialInstitutionBranch>
+              <cac:FinancialInstitution>
+                <cbc:ID><%=h @client.bic%></cbc:ID>
+              </cac:FinancialInstitution>
+            </cac:FinancialInstitutionBranch>
+          </cac:PayeeFinancialAccount>
+<% elsif @invoice.transfer? -%>
+          <cac:PayeeFinancialAccount>
+            <cbc:ID><%=h @company.bank_account%></cbc:ID>
+          </cac:PayeeFinancialAccount>
 <% end -%>
     </cac:PaymentMeans>
 <% end -%>
