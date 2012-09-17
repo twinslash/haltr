@@ -64,7 +64,7 @@
     </cac:AccountingSupplierParty>
     <cac:AccountingCustomerParty>
       <cac:Party>
-<% unless @client.endpointid.blank? -%>
+<% unless !@company.respond_to?(:endpointid) or @company.endpointid.blank? -%>
         <cbc:EndpointID schemeID="<%= @client.schemeid %>"><%= @client.endpointid %></cbc:EndpointID>
 <% end -%>
         <cac:PartyName>
