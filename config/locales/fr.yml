@@ -27,7 +27,7 @@ fr:
   button_people: Personnes
   field_invoice_format: Mode de transimission et format préféré
   field_currency: Monnaie
-  field_ponumber: Ordre d'achat
+  field_ponumber: "Ordre d achat"
   cif_belongs_to_company: "Ce TVA appartient à la compagnie <span style='font-weight: bold;'>%{company}</span>."
   link_to_profile_suggest: Vous pouvez %{href} à ce client
   link_to_profile: lier à son profil publique
@@ -313,6 +313,7 @@ fr:
   # ExportChannels
   paper:       "Aucun (Téléchargement manuel PDF)"
   ublinvoice_20: "UBL Facture 2.0 par email"
+  biiublinvoice_20: "CEN BII UBL 2.0 Facture par email"
   facturae_30: "Facturae 3.0 par email"
   facturae_31: "Facturae 3.1 par email"
   facturae_32: "Facturae 3.2 par email"
@@ -320,13 +321,16 @@ fr:
   aoc: "Facturae 3.0 vers e-FACT hub depuis AOC"
   aoc31: "Facturae 3.1 vers e-FACT hub depuis AOC"
   aoc32: "Facturae 3.2 vers e-FACT hub depuis AOC"
+  peppolbii: "CEN BII - UBL 2.0 par PEPPOL"
+  peppol: "PEPPOL - UBL 2.0 par PEPPOL
+
 
   # Errors
   cant_connect_trace: "Ne peut se connecter à la plate-forme b2brouter. {{value}}"
-  halt_configure_before_use: "Veuillez d'abord configurer votre compagnie"
+  halt_configure_before_use: "Veuillez d abord configurer votre compagnie"
   warning_can_not_generate_invoice: "Ne peut générer la facture depuis le modèle {{value}}"
   notice_invoice_sent: "Facture envoyée"
-  error_invoice_not_sent: "N'a pas pu envoyer la facture %{num}"
+  error_invoice_not_sent: "N a pas pu envoyer la facture %{num}"
   notice_empty_n19: "Aucune donnée pour créer N19"
   notice_n19_done:  "Nº19 pour date d'échéance {{value}} marquée comme faite"
   notice_uploaded_file_not_found: "Fichier non trouvé"
@@ -356,7 +360,6 @@ fr:
   field_send_invoices_by_mail: "envoyer des factures à cet e-mail"
   state_allegedly_paid: "Déclarés comme étant versés"
   ubl_invoice_has_taxes_withheld: "Impossible de générer une facture UBL avec impôts retenus"
-  peppol: "Peppol UBL 2.0 Facture"
   field_endpointid: "Peppol Endpoint ID"
   field_schemeid: "Peppol Scheme ID"
   missing_company_peppol_fields: "champs manquants Peppol votre entreprise"
