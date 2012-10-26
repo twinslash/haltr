@@ -1,5 +1,3 @@
-require_dependency 'project'
-
 module ProjectHaltrPatch
   def self.included(base) # :nodoc:
     base.extend(ClassMethods)
@@ -15,6 +13,7 @@ module ProjectHaltrPatch
       has_many :invoice_templates
       has_many :issued_invoices
       has_many :received_invoices
+      has_many :payments
     end
  
   end
@@ -26,6 +25,3 @@ module ProjectHaltrPatch
   end
 
 end
- 
-# Add module to Project
-Project.send(:include, ProjectHaltrPatch)
