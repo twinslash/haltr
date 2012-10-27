@@ -327,7 +327,7 @@ es:
 
   # ExportChannels
   paper:       "Ninguno (descarga de un PDF)"
-  ublinvoice_20: "Factura UBL 2.0 por email"
+  ublinvoice_20: "Factura PEPPOL UBL 2.0 por email"
   biiublinvoice_20: "Factura CEN BII UBL 2.0 por email"
   facturae_30: "Facturae 3.0 por email"
   facturae_31: "Facturae 3.1 por email"
@@ -336,8 +336,8 @@ es:
   aoc: "Facturae 3.0 por Hub e-FACT de la AOC"
   aoc31: "Facturae 3.1 por Hub e-FACT de la AOC"
   aoc32: "Facturae 3.2 por Hub e-FACT de la AOC"
-  peppolbii: "Factura CEN BII - UBL 2.0 por PEPPOL"
-  peppol: "Factura PEPPOL - UBL 2.0 por PEPPOL"
+  peppolbii: "Factura CEN BII UBL 2.0 por PEPPOL"
+  peppol: "Factura PEPPOL UBL 2.0 por PEPPOL"
 
   # Errors
   cant_connect_trace: "No se puede conectar con la plataforma b2brouter"

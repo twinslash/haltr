@@ -326,7 +326,7 @@ ca:
 
   # ExportChannels
   paper:       "Cap (descàrrega d'un PDF)"
-  ublinvoice_20: "Factura UBL 2.0 per email"
+  ublinvoice_20: "Factura PEPPOL UBL 2.0 per email"
   biiublinvoice_20: "Factura CEN BII UBL 2.0 per email"
   facturae_30: "Facturae 3.0 per email"
   facturae_31: "Facturae 3.1 per email"
@@ -335,8 +335,8 @@ ca:
   aoc: "Facturae 3.0 per Hub e-FACT de la AOC"
   aoc31: "Facturae 3.1 per Hub e-FACT de la AOC"
   aoc32: "Facturae 3.2 per Hub e-FACT de la AOC"
-  peppolbii: "Factura CEN BII - UBL 2.0 per PEPPOL"
-  peppol: "Factura PEPPOL - UBL 2.0 per PEPPOL"
+  peppolbii: "Factura CEN BII UBL 2.0 per PEPPOL"
+  peppol: "Factura PEPPOL UBL 2.0 per PEPPOL"
   
 
   # Errors

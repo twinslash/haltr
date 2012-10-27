@@ -27,7 +27,7 @@ fr:
   button_people: Personnes
   field_invoice_format: Mode de transimission et format préféré
   field_currency: Monnaie
-  field_ponumber: "Ordre d achat"
+  field_ponumber: "Ordre d'achat"
   cif_belongs_to_company: "Ce TVA appartient à la compagnie <span style='font-weight: bold;'>%{company}</span>."
   link_to_profile_suggest: Vous pouvez %{href} à ce client
   link_to_profile: lier à son profil publique
@@ -243,11 +243,11 @@ fr:
   label_task_plural: Tâches
   with_date: Avec date
   charge_bank_on_date: Imputer la banque à la date
-  nothing_to_report: Rien n'a été rapporté
-  nothing_to_generate: Rien n'a à être généré
+  nothing_to_report: "Rien n'a été rapporté"
+  nothing_to_generate: "Rien n'a à être généré"
   button_generate_invoices: Nouvelles factures depuis le modèle
   button_send_invoices: Envoyer factures
-  label_automator_info: télécherger les PDFs, emailer script d'automation et marquer comme envoyé
+  label_automator_info: "télécherger les PDFs, emailer script d'automation et marquer comme envoyé"
   label_charge_n19: Imputer les comptes bancaires avec format N19
   button_mark_done: Marquer comme fait
   label_invoice_report: Rapport des factures
@@ -312,7 +312,7 @@ fr:
 
   # ExportChannels
   paper:       "Aucun (Téléchargement manuel PDF)"
-  ublinvoice_20: "UBL Facture 2.0 par email"
+  ublinvoice_20: "PEPPOL UBL Facture 2.0 par email"
   biiublinvoice_20: "CEN BII UBL 2.0 Facture par email"
   facturae_30: "Facturae 3.0 par email"
   facturae_31: "Facturae 3.1 par email"
@@ -321,8 +321,8 @@ fr:
   aoc: "Facturae 3.0 vers e-FACT hub depuis AOC"
   aoc31: "Facturae 3.1 vers e-FACT hub depuis AOC"
   aoc32: "Facturae 3.2 vers e-FACT hub depuis AOC"
-  peppolbii: "CEN BII - UBL 2.0 par PEPPOL"
-  peppol: "PEPPOL - UBL 2.0 par PEPPOL"
+  peppolbii: "CEN BII UBL 2.0 par PEPPOL"
+  peppol: "PEPPOL UBL 2.0 par PEPPOL"
 
 
   # Errors
