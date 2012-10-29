@@ -18,8 +18,8 @@ class InvoicesController < ApplicationController
   skip_before_filter :check_if_login_required, :only => [:by_taxcode_and_num,:view,:logo,:download,:mail]
   # on development skip auth so we can use curl to debug
   if RAILS_ENV == "development"
-    skip_before_filter :check_if_login_required, :only => [:by_taxcode_and_num,:view,:logo,:download,:mail,:efactura30,:efactura31,:efactura32,:ubl21]
-    skip_before_filter :authorize, :only => [:efactura30,:efactura31,:efactura32,:ubl21]
+    skip_before_filter :check_if_login_required, :only => [:by_taxcode_and_num,:view,:logo,:download,:mail,:efactura30,:efactura31,:efactura32,:ubl21,:biiubl20]
+    skip_before_filter :authorize, :only => [:efactura30,:efactura31,:efactura32,:ubl21,:biiubl20]
   else
     before_filter :check_remote_ip, :only => [:by_taxcode_and_num,:mail]
   end
@@ -33,10 +33,7 @@ class InvoicesController < ApplicationController
     sort_init 'invoices.created_at', 'desc'
     sort_update %w(invoices.created_at state number date due_date clients.name import_in_cents)
 
-    c = ARCondition.new(["invoices.project_id = ?",@project.id])
-
-    # remove Draft Invoices from list
-    c << ["type != ?","DraftInvoice"]
+    invoices = @project.invoices.scoped :conditions => ["type != ?","DraftInvoice"]
 
     unless params["state_all"] == "1"
       statelist=[]
@@ -46,49 +43,51 @@ class InvoicesController < ApplicationController
         end
       end
       if statelist.any?
-        c << ["state in (#{statelist.join(",")})"]
+        invoices = invoices.scoped :conditions => ["state in (#{statelist.join(",")})"]
       end
     end
 
     # client filter
     # TODO: change view collection_select (doesnt display previously selected client)
     unless params[:client_id].blank?
-      c << ["client_id = ?", params[:client_id]]
+      invoices = invoices.scoped :conditions => ["client_id = ?", params[:client_id]]
       @client_id = params[:client_id].to_i rescue nil
     end
 
     # date filter
     unless params[:date_from].blank?
-      c << ["date >= ?",params[:date_from]]
+      invoices = invoices.scoped :conditions => ["date >= ?",params[:date_from]]
     end
     unless params["date_to"].blank?
-      c << ["date <= ?",params[:date_to]]
+      invoices = invoices.scoped :conditions => ["date <= ?",params[:date_to]]
     end
 
-    @i_invoice_count = IssuedInvoice.count(:conditions => c.conditions, :include => [:client])
+    issued_invoices = invoices.scoped :conditions => ['type = ?', 'IssuedInvoice']
+
+    @i_invoice_count = issued_invoices.count
     @i_invoice_pages = Paginator.new self, @i_invoice_count,
 		per_page_option,
 		params['i_page']
-    @i_invoices =  IssuedInvoice.find :all,
+    @i_invoices =  issued_invoices.find :all,
        :order => sort_clause,
-       :conditions => c.conditions,
        :include => [:client],
        :limit  =>  @i_invoice_pages.items_per_page,
        :offset =>  @i_invoice_pages.current.offset
 
-    @r_invoice_count = ReceivedInvoice.count(:conditions => c.conditions, :include => [:client])
+    received_invoices = invoices.scoped :conditions => ['type = ?', 'ReceivedInvoice']
+
+    @r_invoice_count = received_invoices.count
     @r_invoice_pages = Paginator.new self, @r_invoice_count,
 		per_page_option,
 		params['r_page']
-    @r_invoices =  ReceivedInvoice.find :all,
+    @r_invoices =  received_invoices.find :all,
        :order => sort_clause,
-       :conditions => c.conditions,
        :include => [:client],
        :limit  =>  @r_invoice_pages.items_per_page,
        :offset =>  @r_invoice_pages.current.offset
-    @unread = ReceivedInvoice.count(:all, :conditions => (c << ["has_been_read = ?", false]).conditions)
 
-    render :action => "index", :layout => false if request.xhr?
+    @unread = received_invoices.count :all, :conditions => ["has_been_read = ?", false]
+
   end
 
   def new
@@ -252,6 +251,10 @@ class InvoicesController < ApplicationController
   def ubl21
     @company = @invoice.company
     render :template => 'invoices/ubl21.xml.erb', :layout => false
+  end
+  def biiubl20
+    @company = @invoice.company
+    render :template => 'invoices/biiubl20.xml.erb', :layout => false
   end
 
   def show
@@ -430,7 +433,6 @@ class InvoicesController < ApplicationController
   private
 
   def find_hashid
-    Project.send(:include, ProjectHaltrPatch) #TODO: perque nomes funciona el primer cop sense aixo?
     @client = Client.find_by_hashid params[:id]
     if @client.nil?
       render_404
@@ -458,7 +460,6 @@ class InvoicesController < ApplicationController
   end
 
   def find_invoice
-    Project.send(:include, ProjectHaltrPatch) #TODO: perque nomes funciona el primer cop sense aixo?
     @invoice = InvoiceDocument.find params[:id]
     @lines = @invoice.invoice_lines
     @client = @invoice.client || Client.new(:name=>"unknown",:project=>@invoice.project)

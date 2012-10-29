@@ -4,13 +4,7 @@ Haltr - Hackers don't do books
 * Recurring invoices
 * Send PDF invoices
 * Talk to Bank accounts
-
-
-about facturae
-
-* http://www.facturae.es/es-ES/Documentacion/EsquemaFormato/Paginas/Index.aspx
-* http://www11.mityc.es/FacturaE/ValidarCompleto
-
+* Understands UBL and Facturae
 
 INSTALL
 -------
@@ -22,22 +16,22 @@ INSTALL
   cd <Redmine root dir>/vendor/plugins
   git clone git://github.com/descala/haltr.git
 
-* Clone iso_countries on Haltr's vendor/plugins folder
-
-::
-
-  cd <Redmine root dir>
-  cd vendor/plugins/haltr/vendor/plugins
-  git clone https://github.com/koke/iso_countries.git
-
 * Install necessary gems
 
 ::
 
+  # if Redmine <= 1.3
   cd haltr
   bundle install
   cd <Redmine root dir>
   rake gems:install
+
+
+::
+
+  # if Redmine >= 1.4
+  cd <Redmine root dir>
+  bundle install
 
 * Apply the database changes
 

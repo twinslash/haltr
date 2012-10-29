@@ -326,7 +326,8 @@ ca:
 
   # ExportChannels
   paper:       "Cap (descàrrega d'un PDF)"
-  ublinvoice_20: "Factura UBL 2.0 per email"
+  ublinvoice_20: "Factura PEPPOL UBL 2.0 per email"
+  biiublinvoice_20: "Factura CEN BII UBL 2.0 per email"
   facturae_30: "Facturae 3.0 per email"
   facturae_31: "Facturae 3.1 per email"
   facturae_32: "Facturae 3.2 per email"
@@ -334,6 +335,9 @@ ca:
   aoc: "Facturae 3.0 per Hub e-FACT de la AOC"
   aoc31: "Facturae 3.1 per Hub e-FACT de la AOC"
   aoc32: "Facturae 3.2 per Hub e-FACT de la AOC"
+  peppolbii: "Factura CEN BII UBL 2.0 per PEPPOL"
+  peppol: "Factura PEPPOL UBL 2.0 per PEPPOL"
+  
 
   # Errors
   cant_connect_trace: "No es pot connectar a la plataforma b2brouter"
@@ -370,7 +374,6 @@ ca:
   field_send_invoices_by_mail: "Enviar factures a aquest email"
   state_allegedly_paid: "Informada com a pagada"
   ubl_invoice_has_taxes_withheld: "No es pot generar una factura UBL amb impostos retinguts"
-  peppol: "Factura UBL 2.0 via Peppol"
   field_endpointid: "Peppol Endpoint ID"
   field_schemeid: "Peppol Scheme ID"
   missing_company_peppol_fields: "Falten camps de Peppol de la teva empresa"
