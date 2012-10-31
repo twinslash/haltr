@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Ajuda per passar de csv a ruby amb el vim
 #
 #   Cercar i substituir ^" per "] i "$ per "[ 
