@@ -326,6 +326,7 @@ en:
   aoc32: "Facturae 3.2 to e-FACT hub from AOC"
   peppolbii: "CEN BII UBL 2.0 Invoice through PEPPOL"
   peppol: "PEPPOL UBL 2.0 Invoice through PEPPOL"
+  svefaktura: "Svefaktura invoice to email"
 
   # Errors
   cant_connect_trace: "Can't connect to b2brouter platform. {{value}}"
@@ -367,6 +368,8 @@ en:
   missing_company_peppol_fields: "Missing Peppol fields on your company"
   missing_client_peppol_fields: "Missing Peppol fields on client"
   field_accounting_cost: "Accounting cost"
+  missing_svefaktura_account: "Missing Svefaktura account cost"
+  missing_svefaktura_organization: "Missing Svefaktura organization identifier"
 
   label_update_taxes: "Update the taxes of templates"
   field_company_identifier: "Organization ID"

@@ -16,7 +16,8 @@ class ExportChannels
       'aoc31'         => { :format=>'facturae31', :channel=>'free_aoc',    :private=>true, :validate=>:invoice_has_taxes },
       'aoc32'         => { :format=>'facturae32', :channel=>'free_aoc',    :private=>true, :validate=>:invoice_has_taxes },
       'peppol'        => { :format=>'ubl21',      :channel=>'free_peppol', :private=>true, :validate=>[:ubl_invoice_has_no_taxes_withheld, :peppol_fields] },
-      'peppolbii'        => { :format=>'biiubl20',      :channel=>'free_peppol', :private=>true, :validate=>[:ubl_invoice_has_no_taxes_withheld, :peppol_fields] }
+      'peppolbii'        => { :format=>'biiubl20',      :channel=>'free_peppol', :private=>true, :validate=>[:ubl_invoice_has_no_taxes_withheld, :peppol_fields] },
+      'svefaktura'        => { :format=>'svefaktura',      :channel=>'free_xml', :private=>true, :validate=>[:ubl_invoice_has_no_taxes_withheld, :svefaktura_fields] }
     }
   end
 

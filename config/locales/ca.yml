@@ -337,6 +337,7 @@ ca:
   aoc32: "Facturae 3.2 per Hub e-FACT de la AOC"
   peppolbii: "Factura CEN BII UBL 2.0 per PEPPOL"
   peppol: "Factura PEPPOL UBL 2.0 per PEPPOL"
+  svefaktura: "Factura Svefaktura per email"
   
 
   # Errors
@@ -379,6 +380,8 @@ ca:
   missing_company_peppol_fields: "Falten camps de Peppol de la teva empresa"
   missing_client_peppol_fields: "Falten camps de Peppol del client"
   field_accounting_cost: "Centre de cost"
+  missing_svefaktura_account: "Manca el centre de cost per Svefaktura"
+  missing_svefaktura_organization: "Manca el identificado d'empresa per Svefaktura"
 
   label_update_taxes: "Actualitzar els impostos de les plantilles"
   field_company_identifier: "ID d'empresa"

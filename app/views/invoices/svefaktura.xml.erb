@@ -134,4 +134,6 @@
    <RequisitionistDocumentReference>
      <cac0:ID><%=@invoice.accounting_cost%></cac0:ID>
    </RequisitionistDocumentReference>
+<% end -%>
 </Invoice>
+<% lang = find_language(User.current.language); lang ||= Setting.default_language; set_language_if_valid(lang) -%>

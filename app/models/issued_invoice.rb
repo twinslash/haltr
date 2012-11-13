@@ -252,6 +252,17 @@ class IssuedInvoice < InvoiceDocument
     true
   end
 
+  def svefaktura_fields
+    if !self.invoice.accounting_cost or self.invoice.accounting_cost.blank?
+      add_export_error(:missing_svefaktura_account)
+      return false
+    elsif self.company.company_identifier.blank? or !self.company.company_identifier
+      add_export_error(:missing_svefaktura_organization)
+      return false
+    end
+    true
+  end
+
   def release_amended
     if self.amend_of
       self.amend_of.amend_id = nil
