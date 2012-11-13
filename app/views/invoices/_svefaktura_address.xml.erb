@@ -1,0 +1,12 @@
+<% if entity.address and !entity.address.blank? -%>
+    <cbc:StreetName><%=h entity.address%></cbc:StreetName>
+<% end -%>
+<% if entity.city and !entity.city.blank? -%>
+    <cbc:CityName><%=h entity.city%></cbc:CityName>
+<% end -%>
+<% if entity.postalcode and !entity.postalcode.blank? -%>
+    <cbc:PostalZone><%=h entity.postalcode%></cbc:PostalZone>
+<% end -%>
+<cac0:Country>
+  <cac0:IdentificationCode><%=h entity.country_alpha2%></cac0:IdentificationCode>
+</cac0:Country>
