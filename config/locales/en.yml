@@ -370,6 +370,7 @@ en:
   field_accounting_cost: "Accounting cost"
   missing_svefaktura_account: "Missing Svefaktura account cost"
   missing_svefaktura_organization: "Missing Svefaktura organization identifier"
+  missing_svefaktura_debit: "Direct debit not allowed"
 
   label_update_taxes: "Update the taxes of templates"
   field_company_identifier: "Organization ID"

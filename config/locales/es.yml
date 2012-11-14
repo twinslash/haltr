@@ -338,6 +338,7 @@ es:
   aoc32: "Facturae 3.2 por Hub e-FACT de la AOC"
   peppolbii: "Factura CEN BII UBL 2.0 por PEPPOL"
   peppol: "Factura PEPPOL UBL 2.0 por PEPPOL"
+  svefaktura: "Factura Svefaktura por email"
 
   # Errors
   cant_connect_trace: "No se puede conectar con la plataforma b2brouter"
@@ -379,6 +380,9 @@ es:
   missing_company_peppol_fields: "Faltan campos de Peppol de tu empresa"
   missing_client_peppol_fields: "Faltan campos de Peppol del cliente"
   field_accounting_cost: "Centro de coste"
+  missing_svefaktura_account: "Falta el centro de coste"
+  missing_svefaktura_organization: "Falta el identificador de empresa"
+  missing_svefaktura_debit: "No se pueden crear facturas domiciliadas"
 
   label_update_taxes: "Actualiza los impuestos de las plantillas"
   field_company_identifier: "ID de empresa"

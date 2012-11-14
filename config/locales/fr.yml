@@ -323,6 +323,7 @@ fr:
   aoc32: "Facturae 3.2 vers e-FACT hub depuis AOC"
   peppolbii: "CEN BII UBL 2.0 par PEPPOL"
   peppol: "PEPPOL UBL 2.0 par PEPPOL"
+  svefaktura: "Svefaktura par email"
 
 
   # Errors
@@ -365,6 +366,9 @@ fr:
   missing_company_peppol_fields: "champs manquants Peppol votre entreprise"
   missing_client_peppol_fields: "champs manquants Peppol client"
   field_accounting_cost: "comptabilisation des coûts"
+  missing_svefaktura_account: "Manque le centre de cost"
+  missing_svefaktura_organization: "Manque l'identifier de l'enterprise"
+  missing_svefaktura_debit: "On ne peut pas domicilier les factures"
 
   label_update_taxes: "Update the taxes of templates"
   field_company_identifier: "Organization ID"

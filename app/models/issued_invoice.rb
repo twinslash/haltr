@@ -253,11 +253,14 @@ class IssuedInvoice < InvoiceDocument
   end
 
   def svefaktura_fields
-    if !self.invoice.accounting_cost or self.invoice.accounting_cost.blank?
+   if self.accounting_cost.blank?
       add_export_error(:missing_svefaktura_account)
       return false
-    elsif self.company.company_identifier.blank? or !self.company.company_identifier
+   elsif self.company.company_identifier.blank? 
       add_export_error(:missing_svefaktura_organization)
+      return false
+   elsif self.debit? 
+      add_export_error(:missing_svefaktura_debit)
       return false
     end
     true

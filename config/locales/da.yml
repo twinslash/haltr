@@ -322,6 +322,9 @@ da:
   aoc: "Facturae 3.0 til e-FACT hub fra AOC"
   aoc31: "Facturae 3.1 til e-FACT hub fra AOC"
   aoc32: "Facturae 3.2 til e-FACT hub fra AOC"
+  peppolbii: "CEN BII UBL 2.0 til PEPPOL"
+  peppol: "PEPPOL UBL 2.0 til PEPPOL"
+  svefaktura: "Svefaktura til email"
  
   # Errors
   cant_connect_trace: "Kan ikke forbinde til b2brouter platform. {{value}}"
@@ -373,3 +376,9 @@ da:
   zip_gem_required: "zip' perle kræves for at bruge denne funktionalitet"
   too_much_invoices: "for mange fakturaer for at downloade (%{num} invoices, max 10)"
   field_send_invoices_by_mail: "Send fakturaer til denne e-mail"
+  missing_company_peppol_fields: "Manglende PEPPOL felter på din virksomhed"
+  missing_client_peppol_fields: "Manglende PEPPOL felter på klient"
+  field_accounting_cost: "konto cost"
+  missing_svefaktura_account: "Mangler Svefaktura konto cost"
+  missing_svefaktura_organization: "Mangler Svefaktura organisation identifikator"
+  missing_svefaktura_debit: "Direkte debitering ikke tilladt"

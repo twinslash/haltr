@@ -18,8 +18,8 @@ class InvoicesController < ApplicationController
   skip_before_filter :check_if_login_required, :only => [:by_taxcode_and_num,:view,:logo,:download,:mail]
   # on development skip auth so we can use curl to debug
   if RAILS_ENV == "development"
-    skip_before_filter :check_if_login_required, :only => [:by_taxcode_and_num,:view,:logo,:download,:mail,:efactura30,:efactura31,:efactura32,:ubl21,:biiubl20,:svefaktura]
-    skip_before_filter :authorize, :only => [:efactura30,:efactura31,:efactura32,:ubl21,:biiubl20,:svefaktura]
+    skip_before_filter :check_if_login_required, :only => [:by_taxcode_and_num,:view,:logo,:download,:mail,:efactura30,:efactura31,:efactura32,:peppolubl20,:biiubl20,:svefaktura]
+    skip_before_filter :authorize, :only => [:efactura30,:efactura31,:efactura32,:peppolubl20,:biiubl20,:svefaktura]
   else
     before_filter :check_remote_ip, :only => [:by_taxcode_and_num,:mail]
   end
@@ -248,9 +248,9 @@ class InvoicesController < ApplicationController
     @company = @invoice.company
     render :template => 'invoices/facturae32.xml.erb', :layout => false
   end
-  def ubl21
+  def peppolubl20
     @company = @invoice.company
-    render :template => 'invoices/ubl21.xml.erb', :layout => false
+    render :template => 'invoices/peppolubl20.xml.erb', :layout => false
   end
   def biiubl20
     @company = @invoice.company
