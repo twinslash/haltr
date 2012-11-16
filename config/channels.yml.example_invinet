@@ -12,7 +12,7 @@ biiublinvoice_20:
     es: "Factura CEN BII UBL 2.0 por email"
     fr: "CEN BII UBL 2.0 Facture par email"
     sv: "CEN BII UBL 2.0 Faktura till email"
-  permissions:
+  allowed_permissions:
   - send_by_mail
 
 aoc:
@@ -26,7 +26,7 @@ aoc:
     es: "Facturae 3.0 por Hub e-FACT de la AOC"
     fr: "Facturae 3.0 vers e-FACT hub depuis AOC"
     sv: "Spanskt format Facturae 3.0 till e-FACT hub från AOC"
-  permissions:
+  allowed_permissions:
   - send_aoc
 
 aoc31:
@@ -40,7 +40,7 @@ aoc31:
     es: "Facturae 3.1 por Hub e-FACT de la AOC"
     fr: "Facturae 3.1 vers e-FACT hub depuis AOC"
     sv: "Spanskt format Facturae 3.1 till e-FACT hub från AOC"
-  permissions:
+  allowed_permissions:
   - send_aoc
 
 aoc32:
@@ -54,7 +54,7 @@ aoc32:
     es: "Facturae 3.2 por Hub e-FACT de la AOC"
     fr: "Facturae 3.2 vers e-FACT hub depuis AOC"
     sv: "Spanskt format Facturae 3.2 till e-FACT hub från AOC"
-  permissions:
+  allowed_permissions:
   - send_aoc
 
 peppol:
@@ -70,7 +70,7 @@ peppol:
     es: "Factura PEPPOL UBL 2.0 por PEPPOL"
     fr: "PEPPOL UBL 2.0 par PEPPOL"
     sv: "PEPPOL UBL 2.0 Faktura till PEPPOL"
-  permissions:
+  allowed_permissions:
   - send_peppol
 
 peppol:
@@ -86,5 +86,5 @@ peppol:
     es: "Factura PEPPOL BIIUBL 2.0 por PEPPOL"
     fr: "PEPPOL BIIUBL 2.0 par PEPPOL"
     sv: "PEPPOL BIIUBL 2.0 Faktura till PEPPOL"
-  permissions:
+  allowed_permissions:
   - send_peppol
