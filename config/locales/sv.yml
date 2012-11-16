@@ -325,7 +325,6 @@ sv:
   peppolbii: "CEN BII UBL 2.0 Faktura till PEPPOL"
   peppol: "PEPPOL UBL 2.0 Faktura till PEPPOL"
 
-
   # Errors
   cant_connect_trace: "Kan inte få kontakt med  b2brouter plattformen. {{value}}"
   halt_configure_before_use: Var god och registera företag först

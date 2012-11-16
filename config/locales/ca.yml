@@ -338,7 +338,6 @@ ca:
   peppolbii: "Factura CEN BII UBL 2.0 per PEPPOL"
   peppol: "Factura PEPPOL UBL 2.0 per PEPPOL"
   
-
   # Errors
   cant_connect_trace: "No es pot connectar a la plataforma b2brouter"
   halt_configure_before_use: "Si us plau, primer de tot configura les dades de l'empresa"
