@@ -1,0 +1,90 @@
+---
+biiublinvoice_20:
+  format: biiubl20
+  folder: free_ubl
+  validate:
+  - client_has_email
+  - ubl_invoice_has_no_taxes_withheld
+  locales:
+    ca: "Factura CEN BII UBL 2.0 per email"
+    da: "CEN BII UBL 2.0 Invoice to email"
+    en: "CEN BII UBL 2.0 Invoice to email"
+    es: "Factura CEN BII UBL 2.0 por email"
+    fr: "CEN BII UBL 2.0 Facture par email"
+    sv: "CEN BII UBL 2.0 Faktura till email"
+  permissions:
+  - send_by_mail
+
+aoc:
+  format: facturae30
+  folder: free_aoc
+  validate: invoice_has_taxes
+  locales:
+    ca: "Facturae 3.0 per Hub e-FACT de la AOC"
+    da: "Facturae 3.0 til e-FACT hub fra AOC"
+    en: "Facturae 3.0 to e-FACT hub from AOC"
+    es: "Facturae 3.0 por Hub e-FACT de la AOC"
+    fr: "Facturae 3.0 vers e-FACT hub depuis AOC"
+    sv: "Spanskt format Facturae 3.0 till e-FACT hub från AOC"
+  permissions:
+  - send_aoc
+
+aoc31:
+  format: facturae31
+  folder: free_aoc
+  validate: invoice_has_taxes
+  locales:
+    ca: "Facturae 3.1 per Hub e-FACT de la AOC"
+    da: "Facturae 3.1 til e-FACT hub fra AOC"
+    en: "Facturae 3.1 to e-FACT hub from AOC"
+    es: "Facturae 3.1 por Hub e-FACT de la AOC"
+    fr: "Facturae 3.1 vers e-FACT hub depuis AOC"
+    sv: "Spanskt format Facturae 3.1 till e-FACT hub från AOC"
+  permissions:
+  - send_aoc
+
+aoc32:
+  format: facturae32
+  folder: free_aoc
+  validate: invoice_has_taxes
+  locales:
+    ca: "Facturae 3.2 per Hub e-FACT de la AOC"
+    da: "Facturae 3.2 til e-FACT hub fra AOC"
+    en: "Facturae 3.2 to e-FACT hub from AOC"
+    es: "Facturae 3.2 por Hub e-FACT de la AOC"
+    fr: "Facturae 3.2 vers e-FACT hub depuis AOC"
+    sv: "Spanskt format Facturae 3.2 till e-FACT hub från AOC"
+  permissions:
+  - send_aoc
+
+peppol:
+  format: ubl21
+  folder: free_peppol
+  validate:
+  - ubl_invoice_has_no_taxes_withheld
+  - peppol_fields
+  locales:
+    ca: "Factura PEPPOL UBL 2.0 per PEPPOL"
+    da: "PEPPOL UBL 2.0 Invoice through PEPPOL"
+    en: "PEPPOL UBL 2.0 Invoice through PEPPOL"
+    es: "Factura PEPPOL UBL 2.0 por PEPPOL"
+    fr: "PEPPOL UBL 2.0 par PEPPOL"
+    sv: "PEPPOL UBL 2.0 Faktura till PEPPOL"
+  permissions:
+  - send_peppol
+
+peppol:
+  format: biiubl20
+  folder: free_peppol
+  validate:
+  - ubl_invoice_has_no_taxes_withheld
+  - peppol_fields
+  locales:
+    ca: "Factura PEPPOL BIIUBL 2.0 per PEPPOL"
+    da: "PEPPOL BIIUBL 2.0 Invoice through PEPPOL"
+    en: "PEPPOL BIIUBL 2.0 Invoice through PEPPOL"
+    es: "Factura PEPPOL BIIUBL 2.0 por PEPPOL"
+    fr: "PEPPOL BIIUBL 2.0 par PEPPOL"
+    sv: "PEPPOL BIIUBL 2.0 Faktura till PEPPOL"
+  permissions:
+  - send_peppol
